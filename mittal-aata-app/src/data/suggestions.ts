@@ -41,8 +41,6 @@ export function getProductSuggestions(productId: string): SuggestionGroup[] {
     en: 'Goes well with this',
     hi: 'इसके साथ अच्छा लगता है',
   });
-
-  // Same category, different brand — e.g. other ghee brands
   const isGhee = product.name.en.toLowerCase().includes('ghee');
   if (product.categoryId === 'ghee-oil' && isGhee) {
     const otherGhee = products
@@ -55,7 +53,7 @@ export function getProductSuggestions(productId: string): SuggestionGroup[] {
       .map((p) => p.id);
     addProducts(otherGhee, 'similar_brand', {
       en: 'Other ghee brands',
-      hi: 'अन्य घी ब्रांड',
+      hi: 'अन्य घी के ब्रांड',
     });
   } else {
     const sameCategoryOtherBrand = products
@@ -80,7 +78,7 @@ export function getProductSuggestions(productId: string): SuggestionGroup[] {
     .map((p) => p.id);
   addProducts(sameCategory, 'same_category', {
     en: 'More in this category',
-    hi: 'इस श्रेणी में और',
+    hi: 'इस श्रेणी में और देखें',
   }, 4);
 
   // Snacks → other snacks
@@ -102,7 +100,7 @@ export function getProductSuggestions(productId: string): SuggestionGroup[] {
     if (riceProducts.length > 0 && !groups.some((g) => g.type === 'pairs_with')) {
       addProducts(riceProducts, 'pairs_with', {
         en: 'Complete your meal — add rice',
-        hi: 'खाना पूरा करें — चावल जोड़ें',
+        hi: 'भोजन पूरा करें — चावल भी जोड़ें',
       });
     }
   }

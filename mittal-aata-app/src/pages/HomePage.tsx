@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import type { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 import { categories } from '../data/categories';
@@ -9,8 +10,7 @@ import { HomeHero } from '../components/home/HomeHero';
 import { HomeFeatureStrip } from '../components/home/HomeFeatureStrip';
 import { WelcomeBar } from '../components/home/WelcomeBar';
 import { FeaturedSpotlight } from '../components/home/FeaturedSpotlight';
-import { ProductScrollRow } from '../components/home/ProductScrollRow';
-import { ExploreCard } from '../components/home/ExploreCard';
+import { LiveMarqueeRow } from '../components/home/LiveMarqueeRow';
 
 const SPOTLIGHT_ID = 'mittal-gehun-atta-5';
 
@@ -19,6 +19,15 @@ export function HomePage() {
   const freshProducts = getFreshTodayProducts();
   const exploreProducts = getFeaturedProducts();
   const spotlight = getProductById(SPOTLIGHT_ID);
+
+  const marqueeProducts = useMemo(() => {
+    const seen = new Set<string>();
+    return [...exploreProducts, ...freshProducts].filter((p) => {
+      if (seen.has(p.id)) return false;
+      seen.add(p.id);
+      return true;
+    });
+  }, [exploreProducts, freshProducts]);
 
   return (
     <div className="home-page">
@@ -52,27 +61,12 @@ export function HomePage() {
           </div>
         </section>
 
-        <ProductScrollRow
+        <LiveMarqueeRow
           title={t('exploreProducts', language)}
+          products={marqueeProducts}
           viewAllTo="/categories"
           viewAllLabel={t('viewAll', language)}
-        >
-          {exploreProducts.map((p) => (
-            <ExploreCard key={p.id} product={p} />
-          ))}
-        </ProductScrollRow>
-
-        {freshProducts.length > 0 && (
-          <ProductScrollRow
-            title={`✦ ${t('freshToday', language)}`}
-            viewAllTo="/category/atta"
-            viewAllLabel={t('viewAll', language)}
-          >
-            {freshProducts.map((p) => (
-              <ExploreCard key={p.id} product={p} />
-            ))}
-          </ProductScrollRow>
-        )}
+        />
 
         <div className="promo-card">
           <div className="promo-card__content">

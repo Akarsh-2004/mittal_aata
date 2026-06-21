@@ -13,7 +13,7 @@ export const products: Product[] = [
   // Fresh Atta — Mittal's core
   {
     id: 'mittal-gehun-atta-5',
-    name: { en: 'Shudh Gehun Atta', hi: 'शुद्ध गेहूं आटा' },
+    name: { en: 'Shudh Gehun Atta', hi: 'शुद्ध गेहूँ का आटा' },
     brand: 'mittal',
     categoryId: 'atta',
     price: 280,
@@ -22,7 +22,7 @@ export const products: Product[] = [
     image: '/images/products/atta-gehun.jpg',
     description: {
       en: 'Freshly stone-ground wheat flour, ground today. No preservatives.',
-      hi: 'आज पिसा हुआ शुद्ध गेहूं का आटा। बिना परिरक्षक।',
+      hi: 'ताज़ा पिसा हुआ शुद्ध गेहूँ का आटा। बिना किसी परिरक्षक के।',
     },
     quantityPresets: kgPresets([1, 2, 5, 10]),
     tags: ['fresh', 'chakki', 'staple'],
@@ -49,7 +49,7 @@ export const products: Product[] = [
   },
   {
     id: 'mittal-bajra-atta-2',
-    name: { en: 'Bajra Atta', hi: 'बाजरा आटा' },
+    name: { en: 'Bajra Atta', hi: 'बाजरे का आटा' },
     brand: 'mittal',
     categoryId: 'pahadi',
     price: 180,

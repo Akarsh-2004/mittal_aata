@@ -1,3 +1,6 @@
+import { useLanguage } from '../context/LanguageContext';
+import { t } from '../i18n/translations';
+
 type BrandLogoProps = {
   size?: number;
   variant?: 'gold' | 'green' | 'cream';
@@ -49,11 +52,13 @@ type BrandWordmarkProps = {
 };
 
 export function BrandWordmark({ compact, light, className }: BrandWordmarkProps) {
+  const { language } = useLanguage();
+
   return (
     <div className={`brand-wordmark ${light ? 'brand-wordmark--light' : ''} ${compact ? 'brand-wordmark--compact' : ''} ${className ?? ''}`}>
       <div className="brand-wordmark__name">MITTAL</div>
       <div className="brand-wordmark__line" aria-hidden="true" />
-      <div className="brand-wordmark__sub">Aata Chakki · Dehradun</div>
+      <div className="brand-wordmark__sub">{t('brandSubtitle', language)}</div>
     </div>
   );
 }

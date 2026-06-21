@@ -32,7 +32,7 @@ export function Header({ showSearch = true, overlay = false }: HeaderProps) {
         <Link to="/" className="header__brand">
           <img
             src="/images/logo.png"
-            alt="Mittal Aata Chakki"
+            alt={t('appName', language)}
             className="header__logo"
             width={44}
             height={44}

@@ -4,6 +4,7 @@ import { LanguageProvider } from './context/LanguageContext';
 import { CartProvider } from './context/CartContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { SupportStrip } from './components/SupportStrip';
 import { PageLoader } from './components/PageLoader';
 import { HomePage } from './pages/HomePage';
 import { CategoriesPage } from './pages/CategoriesPage';
@@ -11,6 +12,8 @@ import { CategoryPage } from './pages/CategoryPage';
 import { ProductPage } from './pages/ProductPage';
 import { SearchPage } from './pages/SearchPage';
 import { CartPage } from './pages/CartPage';
+import { CheckoutPage } from './pages/CheckoutPage';
+import { ScrollToTop } from './components/ScrollToTop';
 import './index.css';
 
 const LOADER_MIN_MS = 2400;
@@ -37,7 +40,10 @@ function AppLayout({
       >
         {children}
       </main>
-      <Footer />
+      <div className="site-chrome">
+        <SupportStrip />
+        <Footer />
+      </div>
     </>
   );
 }
@@ -93,6 +99,14 @@ function AppRoutes() {
           </AppLayout>
         }
       />
+      <Route
+        path="/checkout"
+        element={
+          <AppLayout showSearch={false}>
+            <CheckoutPage />
+          </AppLayout>
+        }
+      />
     </Routes>
   );
 }
@@ -118,6 +132,7 @@ export default function App() {
           <PageLoader exiting={loaderPhase === 'exit'} />
         )}
         <BrowserRouter>
+          <ScrollToTop />
           <div className={`app ${loaderPhase !== 'done' ? 'app--loading' : ''}`}>
             <AppRoutes />
           </div>

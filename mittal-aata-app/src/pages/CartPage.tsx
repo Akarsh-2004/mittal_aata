@@ -9,20 +9,6 @@ export function CartPage() {
   const { language } = useLanguage();
   const { items, removeItem, updateQuantity, total, clearCart } = useCart();
 
-  const whatsappNumber = '919876543210';
-  const orderMessage = items
-    .map((item) => {
-      const p = getProductById(item.productId);
-      if (!p) return '';
-      return `${localized(p.name, language)} — ${item.quantity} ${item.unit}`;
-    })
-    .filter(Boolean)
-    .join('\n');
-
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    `Namaste Mittal Aata Chakki!\n\nI would like to order:\n\n${orderMessage}\n\nTotal: ₹${total}\n\nPlease confirm delivery.`
-  )}`;
-
   if (items.length === 0) {
     return (
       <div className="page cart-page">
@@ -107,20 +93,15 @@ export function CartPage() {
         </div>
         <p className="cart-summary__note">{t('deliveryNote', language)}</p>
 
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn--green btn--lg btn--full"
-        >
-          {t('orderViaWhatsApp', language)}
-        </a>
+        <Link to="/checkout" className="btn btn--gold btn--lg btn--full">
+          {t('checkout', language)} · ₹{total}
+        </Link>
         <button
           type="button"
           className="btn btn--outline btn--full"
           onClick={clearCart}
         >
-          {t('remove', language)} all
+          {t('clearCart', language)}
         </button>
       </div>
     </div>

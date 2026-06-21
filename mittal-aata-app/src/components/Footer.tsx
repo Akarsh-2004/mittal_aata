@@ -23,7 +23,7 @@ export function Footer() {
         <p className="site-footer__note">
           {t('since1994', language)} · {t('deliveryNote', language)}
         </p>
-        <p className="site-footer__copy">© {year} Mittal Aata Chakki</p>
+        <p className="site-footer__copy">© {year} {t('appName', language)}</p>
       </div>
     </footer>
   );

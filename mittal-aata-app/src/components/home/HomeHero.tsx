@@ -8,7 +8,7 @@ export function HomeHero() {
   const { language } = useLanguage();
 
   return (
-    <section className="home-hero home-hero--cover" aria-label="Mittal Aata Chakki">
+    <section className="home-hero home-hero--cover" aria-label={t('appName', language)}>
       <div className="home-hero__rings" aria-hidden="true">
         <span className="home-hero__ring home-hero__ring--outer" />
         <span className="home-hero__ring home-hero__ring--inner" />

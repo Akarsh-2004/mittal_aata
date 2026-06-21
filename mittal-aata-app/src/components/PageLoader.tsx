@@ -19,7 +19,7 @@ export function PageLoader({ exiting }: PageLoaderProps) {
       <div className="page-loader__inner">
         <img
           src="/images/logo.png"
-          alt="Mittal Aata Chakki"
+          alt={t('appName', language)}
           className="page-loader__logo"
           width={120}
           height={120}

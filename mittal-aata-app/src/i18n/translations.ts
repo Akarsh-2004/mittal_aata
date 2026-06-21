@@ -2,6 +2,7 @@ import type { Language } from '../types';
 
 type TranslationKeys =
   | 'appName'
+  | 'brandSubtitle'
   | 'tagline'
   | 'searchPlaceholder'
   | 'search'
@@ -18,6 +19,7 @@ type TranslationKeys =
   | 'continueShopping'
   | 'total'
   | 'checkout'
+  | 'payNow'
   | 'quantity'
   | 'customQuantity'
   | 'selectQuantity'
@@ -33,7 +35,7 @@ type TranslationKeys =
   | 'items'
   | 'item'
   | 'remove'
-  | 'orderViaWhatsApp'
+  | 'clearCart'
   | 'deliveryNote'
   | 'productsFound'
   | 'noResults'
@@ -65,12 +67,30 @@ type TranslationKeys =
   | 'promoBadge'
   | 'promoTitle'
   | 'promoSub'
-  | 'loading';
+  | 'loading'
+  | 'deliveryDetails'
+  | 'customerName'
+  | 'phone'
+  | 'address'
+  | 'paymentNote'
+  | 'orderSummary'
+  | 'orderPlaced'
+  | 'orderPlacedSub'
+  | 'supportEyebrow'
+  | 'supportTitle'
+  | 'supportSub'
+  | 'callSupport'
+  | 'chatSupport'
+  | 'supportPhone'
+  | 'supportEmail'
+  | 'supportStore'
+  | 'supportHours';
 
 const translations: Record<Language, Record<TranslationKeys, string>> = {
   en: {
-    appName: 'Mittal Aata Chakki',
-    tagline: 'Taaza Pisa. Seedha Aapke Liye.',
+    appName: 'Mittal Provision Store and Atta Chakki',
+    brandSubtitle: 'Provision Store and Atta Chakki · Dehradun',
+    tagline: 'Freshly ground. Straight to you.',
     searchPlaceholder: 'Search atta, dal, ghee, snacks...',
     search: 'Search',
     categories: 'Categories',
@@ -82,10 +102,11 @@ const translations: Record<Language, Record<TranslationKeys, string>> = {
     addedToCart: 'Added!',
     buyNow: 'Buy Now',
     cart: 'Cart',
-    emptyCart: 'Your cart is empty',
+    emptyCart: 'Your cart is empty.',
     continueShopping: 'Continue Shopping',
     total: 'Total',
     checkout: 'Place Order',
+    payNow: 'Pay Now',
     quantity: 'Quantity',
     customQuantity: 'Custom',
     selectQuantity: 'Select quantity',
@@ -101,10 +122,10 @@ const translations: Record<Language, Record<TranslationKeys, string>> = {
     items: 'items',
     item: 'item',
     remove: 'Remove',
-    orderViaWhatsApp: 'Order via WhatsApp',
+    clearCart: 'Clear cart',
     deliveryNote: 'Order by 12 PM for same-day delivery in Dehradun',
     productsFound: 'products found',
-    noResults: 'No products found',
+    noResults: 'No products found.',
     tryDifferent: 'Try a different search term',
     allBrands: 'All Brands',
     filterByBrand: 'Filter by brand',
@@ -134,32 +155,51 @@ const translations: Record<Language, Record<TranslationKeys, string>> = {
     promoTitle: 'Order fresh atta by 12 PM',
     promoSub: 'Ground this morning at our chakki — delivered to your door in Dehradun.',
     loading: 'Getting your fresh groceries ready…',
+    deliveryDetails: 'Delivery details',
+    customerName: 'Full name',
+    phone: 'Phone number',
+    address: 'Delivery address',
+    paymentNote: 'Pay securely on this site. Cash on delivery also available in Dehradun.',
+    orderSummary: 'Order summary',
+    orderPlaced: 'Order placed!',
+    orderPlacedSub: 'Thank you. We will confirm your delivery shortly.',
+    supportEyebrow: 'Customer support',
+    supportTitle: 'Need help? We\'re here for you',
+    supportSub: 'Call, message, or visit our chakki — friendly help for orders, delivery, and product questions.',
+    callSupport: 'Call us',
+    chatSupport: 'Message on WhatsApp',
+    supportPhone: 'Phone',
+    supportEmail: 'Email',
+    supportStore: 'Store',
+    supportHours: 'Open hours',
   },
   hi: {
-    appName: 'मittal आटा चक्की',
-    tagline: 'ताज़ा पिसा। सीधा आapke लिए।',
+    appName: 'Mittal प्रोविजन स्टोर और आटा चक्की',
+    brandSubtitle: 'प्रोविजन स्टोर और आटा चक्की · देहरादून',
+    tagline: 'ताज़ा पिसा हुआ। सीधे आपके लिए।',
     searchPlaceholder: 'आटा, दाल, घी, नाश्ता खोजें...',
     search: 'खोजें',
     categories: 'श्रेणियाँ',
     brands: 'ब्रांड',
-    freshToday: 'आज ताज़ा पिसा',
+    freshToday: 'आज ताज़ा पिसा हुआ',
     featured: 'लोकप्रिय सामान',
-    viewAll: 'सब देखें',
-    addToCart: 'कार्ट में डालें',
-    addedToCart: 'जोड़ दिया!',
+    viewAll: 'सभी देखें',
+    addToCart: 'कार्ट में जोड़ें',
+    addedToCart: 'जोड़ दिया गया!',
     buyNow: 'अभी खरीदें',
     cart: 'कार्ट',
-    emptyCart: 'आapki कार्ट खाली है',
+    emptyCart: 'आपकी कार्ट खाली है।',
     continueShopping: 'खरीदारी जारी रखें',
     total: 'कुल',
     checkout: 'ऑर्डर करें',
+    payNow: 'अभी भुगतान करें',
     quantity: 'मात्रा',
     customQuantity: 'अपनी मात्रा',
     selectQuantity: 'मात्रा चुनें',
     inStock: 'उपलब्ध',
-    outOfStock: 'स्टॉck में नहीं',
-    freshGround: 'ताज़ा पिसा',
-    groundToday: 'आज हमari चकki में पisa',
+    outOfStock: 'स्टॉक में नहीं है',
+    freshGround: 'ताज़ा पिसा हुआ',
+    groundToday: 'आज हमारी चक्की में पिसा हुआ',
     home: 'होम',
     shop: 'दुकान',
     language: 'भाषा',
@@ -168,39 +208,56 @@ const translations: Record<Language, Record<TranslationKeys, string>> = {
     items: 'सामान',
     item: 'सामान',
     remove: 'हटाएँ',
-    orderViaWhatsApp: 'WhatsApp से ऑर्डर',
-    deliveryNote: '12 बजे से पहle ऑर्डर — आज ही डिलीवरी (dehradun)',
-    productsFound: 'सामान मile',
-    noResults: 'कोई सामान नहीं मila',
-    tryDifferent: 'दूसra शबd खोजें',
+    clearCart: 'कार्ट खाली करें',
+    deliveryNote: '12 बजे से पहले ऑर्डर करें — देहरादून में आज ही डिलीवरी',
+    productsFound: 'सामान मिले',
+    noResults: 'कोई सामान नहीं मिला।',
+    tryDifferent: 'कोई दूसरा शब्द खोजें',
     allBrands: 'सभी ब्रांड',
-    filterByBrand: 'ब्रांड se filter',
-    back: 'वapas',
-    description: 'इस सामan ke baare mein',
+    filterByBrand: 'ब्रांड के अनुसार छाँटें',
+    back: 'वापस',
+    description: 'इस सामान के बारे में',
     price: 'कीमत',
-    per: 'prati',
-    since1994: '1994 se bharosemand',
-    trustedKitchens: 'Dehradun ki bharosemand dukaan',
-    heroExplore: 'Taaza Atta Dekhein',
-    heroSubtext: 'Aaj hamari chakki mein pisa — seedha aapke kitchen tak.',
-    heroFeatures: 'Kyun Mittal',
-    heroFeature1: 'Apna weekly atta order aasaani se shuru karein',
-    heroFeature1Link: 'Atta Dekhein',
-    heroFeature2: 'Aaj taaza pisa — koi purana stock nahi',
-    heroFeature3: '30 saal se Dehradun parivaaron ka bharosa',
-    heroStep_grind: 'Pisa',
-    heroStep_pack: 'Pack',
-    heroStep_deliver: 'Delivery',
-    welcome: 'Namaste! Swagat hai',
-    welcomeSub: 'Aaj dukaan se kya chahiye?',
-    exploreProducts: 'Samaan Dekhein',
-    featuredPick: 'Aaj ki Pasand',
-    proceed: 'Cart mein Jaayein',
-    selectSize: 'Size chunein',
-    promoBadge: 'Aaj hi delivery',
-    promoTitle: '12 baje se pehle taaza atta order karein',
-    promoSub: 'Subah hamari chakki mein pisa — Dehradun mein ghar tak.',
-    loading: 'Taaza samaan taiyaar ho raha hai…',
+    per: 'प्रति',
+    since1994: '1994 से भरोसेमंद',
+    trustedKitchens: 'देहरादून की भरोसेमंद किराना दुकान',
+    heroExplore: 'ताज़ा आटा देखें',
+    heroSubtext: 'आज हमारी चक्की में पिसा हुआ आटा — सीधे आपकी रसोई तक।',
+    heroFeatures: 'Mittal क्यों',
+    heroFeature1: 'अपना साप्ताहिक आटा ऑर्डर आसानी से शुरू करें',
+    heroFeature1Link: 'आटा देखें',
+    heroFeature2: 'आज ताज़ा पिसा — कोई पुराना स्टॉक नहीं',
+    heroFeature3: '30 वर्षों से देहरादून के परिवारों का भरोसा',
+    heroStep_grind: 'पिसाई',
+    heroStep_pack: 'पैक',
+    heroStep_deliver: 'डिलीवरी',
+    welcome: 'नमस्ते! आपका स्वागत है।',
+    welcomeSub: 'आज आपको दुकान से क्या चाहिए?',
+    exploreProducts: 'सामान देखें',
+    featuredPick: 'आज की पसंद',
+    proceed: 'कार्ट में जाएँ',
+    selectSize: 'आकार चुनें',
+    promoBadge: 'आज ही डिलीवरी',
+    promoTitle: '12 बजे से पहले ताज़ा आटा ऑर्डर करें',
+    promoSub: 'सुबह हमारी चक्की में पिसा — देहरादून में घर तक।',
+    loading: 'ताज़ा सामान तैयार किया जा रहा है…',
+    deliveryDetails: 'डिलीवरी विवरण',
+    customerName: 'पूरा नाम',
+    phone: 'फ़ोन नंबर',
+    address: 'डिलीवरी का पता',
+    paymentNote: 'इसी साइट पर सुरक्षित भुगतान करें। देहरादून में डिलीवरी पर नकद भी उपलब्ध है।',
+    orderSummary: 'ऑर्डर सारांश',
+    orderPlaced: 'ऑर्डर हो गया!',
+    orderPlacedSub: 'धन्यवाद। हम जल्द ही आपकी डिलीवरी की पुष्टि करेंगे।',
+    supportEyebrow: 'ग्राहक सहायता',
+    supportTitle: 'मदद चाहिए? हम यहाँ हैं',
+    supportSub: 'कॉल करें, संदेश भेजें, या चक्की पर आएँ — ऑर्डर, डिलीवरी और सामान के बारे में सहायता।',
+    callSupport: 'हमें कॉल करें',
+    chatSupport: 'WhatsApp पर संदेश',
+    supportPhone: 'फ़ोन',
+    supportEmail: 'ईमेल',
+    supportStore: 'दुकान',
+    supportHours: 'खुलने का समय',
   },
 };
 
