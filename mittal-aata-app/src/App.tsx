@@ -12,6 +12,7 @@ import { CategoryPage } from './pages/CategoryPage';
 import { ProductPage } from './pages/ProductPage';
 import { SearchPage } from './pages/SearchPage';
 import { CartPage } from './pages/CartPage';
+import { ChakkiPage } from './pages/ChakkiPage';
 import { CheckoutPage } from './pages/CheckoutPage';
 import { ScrollToTop } from './components/ScrollToTop';
 import './index.css';
@@ -96,6 +97,14 @@ function AppRoutes() {
         element={
           <AppLayout showSearch={false}>
             <CartPage />
+          </AppLayout>
+        }
+      />
+      <Route
+        path="/chakki"
+        element={
+          <AppLayout showSearch={false}>
+            <ChakkiPage />
           </AppLayout>
         }
       />

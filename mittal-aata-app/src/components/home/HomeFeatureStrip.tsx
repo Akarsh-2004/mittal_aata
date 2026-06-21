@@ -14,7 +14,7 @@ export function HomeFeatureStrip() {
       <div className="feature-strip__card feature-strip__card--cream">
         <div className="feature-strip__content">
           <p className="feature-strip__text">{t('heroFeature1', language)}</p>
-          <Link to="/category/atta" className="feature-strip__link">
+          <Link to="/chakki" className="feature-strip__link">
             {t('heroFeature1Link', language)}
           </Link>
         </div>

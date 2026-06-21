@@ -49,6 +49,23 @@ type TranslationKeys =
   | 'since1994'
   | 'trustedKitchens'
   | 'heroExplore'
+  | 'viewProduct'
+  | 'browseChakki'
+  | 'chakkiBadge'
+  | 'chakkiSectionTitle'
+  | 'chakkiSectionSub'
+  | 'chakkiPageTitle'
+  | 'chakkiPageSub'
+  | 'chakkiStepsLabel'
+  | 'chakkiAisleEmpty'
+  | 'chakkiAisle_atta'
+  | 'chakkiAisle_spices'
+  | 'chakkiAisle_millets'
+  | 'chakkiAisle_other'
+  | 'chakkiAisleDesc_atta'
+  | 'chakkiAisleDesc_spices'
+  | 'chakkiAisleDesc_millets'
+  | 'chakkiAisleDesc_other'
   | 'heroSubtext'
   | 'heroFeatures'
   | 'heroFeature1'
@@ -90,7 +107,7 @@ const translations: Record<Language, Record<TranslationKeys, string>> = {
   en: {
     appName: 'Mittal Provision Store and Atta Chakki',
     brandSubtitle: 'Provision Store and Atta Chakki · Dehradun',
-    tagline: 'Freshly ground. Straight to you.',
+    tagline: 'Taaza Pisa. Seedha Aapke Liye.',
     searchPlaceholder: 'Search atta, dal, ghee, snacks...',
     search: 'Search',
     categories: 'Categories',
@@ -135,11 +152,28 @@ const translations: Record<Language, Record<TranslationKeys, string>> = {
     per: 'per',
     since1994: 'Trusted in kitchens since 1994',
     trustedKitchens: 'Dehradun\'s trusted grocery store',
-    heroExplore: 'Shop Fresh Atta',
+    heroExplore: 'Shop from Chakki',
+    viewProduct: 'View product',
+    browseChakki: 'Browse',
+    chakkiBadge: 'Our Chakki',
+    chakkiSectionTitle: 'Fresh from our chakki',
+    chakkiSectionSub: 'Stone-ground atta, spices, millets and more — milled today, delivered to your door.',
+    chakkiPageTitle: 'Shop from our chakki',
+    chakkiPageSub: 'Everything ground fresh at Mittal\'s chakki — no warehouse stock, no stale flour.',
+    chakkiStepsLabel: 'How our chakki works',
+    chakkiAisleEmpty: 'Ask at the shop — we grind this fresh for you.',
+    chakkiAisle_atta: 'Atta',
+    chakkiAisle_spices: 'Spices',
+    chakkiAisle_millets: 'Millets',
+    chakkiAisle_other: 'Other Chakki Grinds',
+    chakkiAisleDesc_atta: 'Wheat, multigrain and specialty flours — ground fresh daily.',
+    chakkiAisleDesc_spices: 'Whole spices ground to order — haldi, garam masala and more.',
+    chakkiAisleDesc_millets: 'Pahadi ragi, jhangora, bajra and hill grains from Uttarakhand.',
+    chakkiAisleDesc_other: 'Multigrain blends and custom grinds — ask our chakki wala.',
     heroSubtext: 'Stone-ground atta, milled today at our chakki — delivered straight to your kitchen.',
     heroFeatures: 'Why Mittal',
     heroFeature1: 'Start your weekly atta order the easy way',
-    heroFeature1Link: 'Browse Atta',
+    heroFeature1Link: 'Browse Chakki',
     heroFeature2: 'Ground fresh today at our chakki — no warehouse stock',
     heroFeature3: 'Trusted by Dehradun families for over 30 years',
     heroStep_grind: 'Grind',
@@ -221,11 +255,28 @@ const translations: Record<Language, Record<TranslationKeys, string>> = {
     per: 'प्रति',
     since1994: '1994 से भरोसेमंद',
     trustedKitchens: 'देहरादून की भरोसेमंद किराना दुकान',
-    heroExplore: 'ताज़ा आटा देखें',
+    heroExplore: 'चक्की से खरीदें',
+    viewProduct: 'सामान देखें',
+    browseChakki: 'देखें',
+    chakkiBadge: 'हमारी चक्की',
+    chakkiSectionTitle: 'चक्की से ताज़ा',
+    chakkiSectionSub: 'आटा, मसाले, मिलेट और अन्य — आज पिसा, सीधे आपके घर तक।',
+    chakkiPageTitle: 'हमारी चक्की से खरीदें',
+    chakkiPageSub: 'Mittal की चक्की में आज ताज़ा पिसा — न कोई गोदाम, न पुराना आटा।',
+    chakkiStepsLabel: 'चक्की कैसे काम करती है',
+    chakkiAisleEmpty: 'दुकान पर पूछें — हम यह ताज़ा पिसकर देंगे।',
+    chakkiAisle_atta: 'आटा',
+    chakkiAisle_spices: 'मसाले',
+    chakkiAisle_millets: 'मिलेट',
+    chakkiAisle_other: 'अन्य चक्की पिसाई',
+    chakkiAisleDesc_atta: 'गेहूँ, मल्टीग्रेन और विशेष आटा — रोज़ ताज़ा पिसा।',
+    chakkiAisleDesc_spices: 'साबुत मसाले — हल्दी, गरम मसाला और अन्य, आपके अनुसार पिसे।',
+    chakkiAisleDesc_millets: 'पहाड़ी रागी, झंगोरा, बाजरा — उत्तराखंड के अनाज।',
+    chakkiAisleDesc_other: 'मल्टीग्रेन मिश्रण और विशेष पिसाई — चक्कीवाले से पूछें।',
     heroSubtext: 'आज हमारी चक्की में पिसा हुआ आटा — सीधे आपकी रसोई तक।',
     heroFeatures: 'Mittal क्यों',
     heroFeature1: 'अपना साप्ताहिक आटा ऑर्डर आसानी से शुरू करें',
-    heroFeature1Link: 'आटा देखें',
+    heroFeature1Link: 'चक्की देखें',
     heroFeature2: 'आज ताज़ा पिसा — कोई पुराना स्टॉक नहीं',
     heroFeature3: '30 वर्षों से देहरादून के परिवारों का भरोसा',
     heroStep_grind: 'पिसाई',

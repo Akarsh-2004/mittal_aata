@@ -35,7 +35,7 @@ export function FeaturedSpotlight({ product }: FeaturedSpotlightProps) {
           </span>
         </div>
         <span className="spotlight-card__cta">
-          {t('heroExplore', language)}
+          {t('viewProduct', language)}
           <IconArrowUpRight size={16} />
         </span>
       </div>

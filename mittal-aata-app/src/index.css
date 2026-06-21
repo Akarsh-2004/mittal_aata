@@ -779,6 +779,265 @@ img {
   padding: 48px var(--container-pad) 64px;
 }
 
+/* ─── Chakki section (home) ─── */
+.chakki-section {
+  margin-bottom: 48px;
+  padding: 32px;
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+  border-radius: var(--radius-lg);
+  color: var(--cream);
+  border: 1px solid rgba(196, 151, 58, 0.35);
+}
+
+.chakki-section__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.chakki-section__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 10px;
+}
+
+.chakki-section__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.chakki-section__sub {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(247, 240, 224, 0.85);
+  max-width: 36em;
+}
+
+.chakki-section__cta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  background: var(--gold);
+  color: var(--charcoal);
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.15s;
+}
+
+.chakki-section__cta:hover {
+  background: var(--gold-light);
+}
+
+.chakki-section__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.chakki-aisle-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 18px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-lg);
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.chakki-aisle-card:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.chakki-aisle-card__icon {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.chakki-aisle-card__name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--cream);
+}
+
+.chakki-aisle-card__desc {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgba(247, 240, 224, 0.75);
+  flex: 1;
+}
+
+.chakki-aisle-card__link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  letter-spacing: 0.5px;
+}
+
+.chakki-section__steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.chakki-section__step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(247, 240, 224, 0.9);
+}
+
+.chakki-section__step-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ─── Chakki page ─── */
+.chakki-page__hero {
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+  color: var(--cream);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  margin-bottom: 40px;
+  border: 1px solid rgba(196, 151, 58, 0.3);
+}
+
+.chakki-page__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+}
+
+.chakki-page__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.chakki-page__sub {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(247, 240, 224, 0.85);
+  max-width: 40em;
+  margin-bottom: 20px;
+}
+
+.chakki-page__steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+}
+
+.chakki-page__step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.chakki-page__step-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.chakki-page__aisle {
+  scroll-margin-top: calc(var(--header-h) + 16px);
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--cream-dark);
+}
+
+.chakki-page__aisle:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.chakki-page__aisle-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.chakki-page__aisle-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chakki-page__aisle-icon {
+  font-size: 1.75rem;
+}
+
+.chakki-page__aisle-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.chakki-page__aisle-link {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.chakki-page__aisle-desc {
+  color: var(--warm-grey);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-bottom: 20px;
+  max-width: 42em;
+}
+
+.chakki-page__grid {
+  margin-top: 4px;
+}
+
+.chakki-page__empty {
+  color: var(--warm-grey);
+  font-size: 0.92rem;
+  padding: 20px;
+  background: var(--cream-dark);
+  border-radius: var(--radius);
+}
+
 /* ─── Feature Strip (full-width 3 columns) ─── */
 .feature-strip {
   display: grid;
@@ -2579,6 +2838,38 @@ img {
   .promo-card {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .chakki-section {
+    padding: 24px 20px;
+  }
+
+  .chakki-section__header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .chakki-section__cta {
+    align-self: flex-start;
+  }
+
+  .chakki-section__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .chakki-page__hero {
+    padding: 28px 22px;
+  }
+
+  .chakki-page__aisle-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .chakki-section__grid {
+    grid-template-columns: 1fr;
   }
 }
 

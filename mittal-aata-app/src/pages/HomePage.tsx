@@ -10,6 +10,7 @@ import { HomeHero } from '../components/home/HomeHero';
 import { HomeFeatureStrip } from '../components/home/HomeFeatureStrip';
 import { WelcomeBar } from '../components/home/WelcomeBar';
 import { FeaturedSpotlight } from '../components/home/FeaturedSpotlight';
+import { ChakkiSection } from '../components/home/ChakkiSection';
 import { LiveMarqueeRow } from '../components/home/LiveMarqueeRow';
 
 const SPOTLIGHT_ID = 'mittal-gehun-atta-5';
@@ -38,6 +39,8 @@ export function HomePage() {
         <WelcomeBar />
 
         {spotlight && <FeaturedSpotlight product={spotlight} />}
+
+        <ChakkiSection />
 
         <section className="section">
           <div className="section__header">
@@ -74,7 +77,7 @@ export function HomePage() {
             <h3 className="promo-card__title">{t('promoTitle', language)}</h3>
             <p className="promo-card__sub">{t('promoSub', language)}</p>
           </div>
-          <Link to="/category/atta" className="promo-card__btn">
+          <Link to="/chakki" className="promo-card__btn">
             {t('heroExplore', language)}
           </Link>
         </div>

@@ -25,7 +25,7 @@ export function HomeHero() {
         <p className="home-hero__cover-tagline">{t('tagline', language)}</p>
 
         <div className="home-hero__cover-actions">
-          <Link to="/category/atta" className="home-hero__cta home-hero__cta--gold">
+          <Link to="/chakki" className="home-hero__cta home-hero__cta--gold">
             {t('heroExplore', language)}
             <IconArrowUpRight size={18} />
           </Link>
