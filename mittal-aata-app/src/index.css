@@ -21,6 +21,7 @@
   --shadow-lg: 0 8px 32px rgba(26, 26, 24, 0.12);
 
   --header-h: 72px;
+  --bottom-nav-h: 0px;
   --container-max: 1280px;
   --container-pad: 48px;
   --touch-min: 44px;
@@ -569,7 +570,7 @@ img {
   color: var(--green);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .cat-bg-layout__image {
     background-position: center top;
   }
@@ -627,6 +628,70 @@ img {
 
 .header--overlay .header__cart {
   color: var(--cream);
+}
+
+/* ─── Mobile bottom navigation ─── */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  height: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: var(--white);
+  border-top: 1px solid var(--cream-dark);
+  box-shadow: 0 -4px 20px rgba(26, 26, 24, 0.08);
+}
+
+.bottom-nav__link {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: var(--bottom-nav-h);
+  padding: 6px 4px;
+  color: var(--warm-grey);
+  font-size: 0.68rem;
+  font-weight: 600;
+  transition: color 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bottom-nav__link--active {
+  color: var(--green);
+}
+
+.bottom-nav__icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom-nav__badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--charcoal);
+  font-size: 0.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom-nav__label {
+  line-height: 1;
+  letter-spacing: 0.02em;
 }
 
 /* ─── Home Hero — Brand Cover ─── */
@@ -2772,10 +2837,31 @@ img {
   font-size: 1.05rem;
 }
 
-/* ─── Responsive (desktop-first; narrow screens stack) ─── */
-@media (max-width: 900px) {
+/* ─── Responsive: phone · iPad · desktop ─── */
+
+/* Phone (iPhone, small Android) */
+@media (max-width: 767px) {
   :root {
-    --container-pad: 24px;
+    --container-pad: 20px;
+    --bottom-nav-h: 60px;
+    --header-h: 64px;
+  }
+
+  .bottom-nav {
+    display: flex;
+  }
+
+  .app {
+    padding-bottom: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom, 0px));
+  }
+
+  .header {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .header__container {
+    gap: 12px;
+    padding: 0 16px;
   }
 
   .header__nav {
@@ -2786,12 +2872,89 @@ img {
     display: none;
   }
 
+  .header__cart {
+    display: none;
+  }
+
+  .header__brand-text .brand-wordmark__sub {
+    display: none;
+  }
+
+  .main-content {
+    padding-bottom: 24px;
+  }
+
+  .home-page__body {
+    padding: 32px var(--container-pad) 48px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .welcome-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .welcome-bar__greeting {
+    font-size: 1.45rem;
+  }
+
+  .welcome-bar__search {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .category-pills {
+    gap: 10px;
+  }
+
+  .category-pill {
+    font-size: 0.85rem;
+    padding: 10px 14px;
+  }
+
+  .live-marquee__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .spotlight-card {
+    grid-template-columns: 1fr;
+  }
+
+  .home-hero {
+    min-height: min(88vh, 720px);
+    padding: calc(var(--header-h) + 32px) var(--container-pad) 48px;
+  }
+
   .home-hero__cover-actions {
     flex-direction: column;
+    width: 100%;
+  }
+
+  .home-hero__cta,
+  .home-hero__cta-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .brand-wordmark__name {
+    letter-spacing: 6px;
   }
 
   .feature-strip {
     grid-template-columns: 1fr;
+  }
+
+  .feature-strip__card {
+    padding: 24px 20px;
+    min-height: auto;
   }
 
   .feature-strip__card--white {
@@ -2803,6 +2966,11 @@ img {
 
   .site-footer__container {
     grid-template-columns: 1fr;
+    padding: 32px var(--container-pad);
+  }
+
+  .support-strip {
+    padding: 36px var(--container-pad);
   }
 
   .support-strip__inner {
@@ -2814,16 +2982,13 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .spotlight-card {
-    grid-template-columns: 1fr;
-  }
-
   .scroll-row__track {
     display: flex;
     overflow-x: auto;
     gap: 16px;
     padding-bottom: 8px;
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
   .scroll-row__track .explore-card {
@@ -2835,9 +3000,23 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .cat-bg-layout__glass {
+    padding: 20px var(--container-pad) 48px;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cart-summary {
+    position: static;
+  }
+
   .promo-card {
     flex-direction: column;
     align-items: flex-start;
+    padding: 24px 20px;
   }
 
   .chakki-section {
@@ -2850,7 +3029,8 @@ img {
   }
 
   .chakki-section__cta {
-    align-self: flex-start;
+    align-self: stretch;
+    justify-content: center;
   }
 
   .chakki-section__grid {
@@ -2865,15 +3045,259 @@ img {
     flex-direction: column;
     align-items: flex-start;
   }
-}
 
-@media (max-width: 520px) {
-  .chakki-section__grid {
+  .checkout-layout {
     grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
   }
 }
 
-@media (min-width: 901px) {
+/* iPad & tablet (768px – 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  :root {
+    --container-pad: 32px;
+    --header-h: 68px;
+    --bottom-nav-h: 0px;
+  }
+
+  .bottom-nav {
+    display: none;
+  }
+
+  .header {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .header__container {
+    padding: 0 var(--container-pad);
+    gap: 16px;
+  }
+
+  .header__nav-link {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+
+  .header__search-inline {
+    width: 180px;
+  }
+
+  .header__brand-text .brand-wordmark__sub {
+    font-size: 0.5rem;
+    letter-spacing: 1.5px;
+  }
+
+  .main-content {
+    padding: 0 var(--container-pad) 40px;
+  }
+
+  .main-content--home {
+    padding: 0;
+  }
+
+  .home-page__body {
+    padding: 40px var(--container-pad) 56px;
+  }
+
+  .home-hero {
+    min-height: min(80vh, 780px);
+    padding: calc(var(--header-h) + 40px) var(--container-pad) 56px;
+  }
+
+  .home-hero__cover-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .home-hero__cta,
+  .home-hero__cta-secondary {
+    width: auto;
+  }
+
+  .feature-strip {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .feature-strip__card {
+    padding: 24px 20px;
+    min-height: 160px;
+  }
+
+  .feature-strip__card--cream {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .welcome-bar {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .spotlight-card {
+    grid-template-columns: minmax(220px, 38%) 1fr;
+    gap: 28px;
+  }
+
+  .chakki-section {
+    padding: 28px 24px;
+  }
+
+  .chakki-section__header {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .chakki-section__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+
+  .chakki-section__cta {
+    align-self: auto;
+    white-space: nowrap;
+  }
+
+  .category-pills {
+    gap: 12px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .product-page__layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .cat-bg-layout__glass {
+    padding: 24px var(--container-pad) 56px;
+  }
+
+  .support-strip {
+    padding: 40px var(--container-pad);
+  }
+
+  .support-strip__inner {
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 32px;
+  }
+
+  .support-strip__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .site-footer__container {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 40px var(--container-pad);
+  }
+
+  .promo-card {
+    flex-direction: row;
+    align-items: center;
+    padding: 28px 32px;
+  }
+
+  .checkout-layout {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 28px;
+  }
+
+  .cart-summary {
+    position: sticky;
+    top: calc(var(--header-h) + 16px);
+  }
+
+  .live-marquee__header {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .scroll-row__track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .chakki-page__aisle-header {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* iPad portrait — slightly tighter grids */
+@media (min-width: 768px) and (max-width: 834px) and (orientation: portrait) {
+  .feature-strip__card {
+    padding: 20px 16px;
+  }
+
+  .feature-strip__text {
+    font-size: 0.88rem;
+  }
+
+  .chakki-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header__search-inline {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --container-pad: 16px;
+  }
+
+  .chakki-section__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-grid {
+    gap: 12px;
+  }
+
+  .product-card__title {
+    font-size: 0.9rem;
+  }
+
+  .support-strip__actions {
+    flex-direction: column;
+  }
+
+  .support-strip__btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .promo-card__btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .header__brand-text .brand-wordmark__name {
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+  }
+
+  .bottom-nav__label {
+    font-size: 0.62rem;
+  }
+}
+
+@media (min-width: 1025px) {
   .scroll-row__track {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -2884,16 +3308,6 @@ img {
 
   .product-grid {
     grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (min-width: 601px) and (max-width: 900px) {
-  .category-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .product-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -3090,10 +3504,4 @@ img {
   color: var(--warm-grey);
   margin: 12px 0 28px;
   line-height: 1.6;
-}
-
-@media (max-width: 900px) {
-  .checkout-layout {
-    grid-template-columns: 1fr;
-  }
 }

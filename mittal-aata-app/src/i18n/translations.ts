@@ -48,6 +48,7 @@ type TranslationKeys =
   | 'per'
   | 'since1994'
   | 'trustedKitchens'
+  | 'chakkiNav'
   | 'heroExplore'
   | 'viewProduct'
   | 'browseChakki'
@@ -152,6 +153,7 @@ const translations: Record<Language, Record<TranslationKeys, string>> = {
     per: 'per',
     since1994: 'Trusted in kitchens since 1994',
     trustedKitchens: 'Dehradun\'s trusted grocery store',
+    chakkiNav: 'Chakki',
     heroExplore: 'Shop from Chakki',
     viewProduct: 'View product',
     browseChakki: 'Browse',
@@ -255,6 +257,7 @@ const translations: Record<Language, Record<TranslationKeys, string>> = {
     per: 'प्रति',
     since1994: '1994 से भरोसेमंद',
     trustedKitchens: 'देहरादून की भरोसेमंद किराना दुकान',
+    chakkiNav: 'चक्की',
     heroExplore: 'चक्की से खरीदें',
     viewProduct: 'सामान देखें',
     browseChakki: 'देखें',

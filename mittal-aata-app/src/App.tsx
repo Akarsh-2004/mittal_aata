@@ -14,6 +14,7 @@ import { SearchPage } from './pages/SearchPage';
 import { CartPage } from './pages/CartPage';
 import { ChakkiPage } from './pages/ChakkiPage';
 import { CheckoutPage } from './pages/CheckoutPage';
+import { BottomNav } from './components/BottomNav';
 import { ScrollToTop } from './components/ScrollToTop';
 import './index.css';
 
@@ -45,6 +46,7 @@ function AppLayout({
         <SupportStrip />
         <Footer />
       </div>
+      <BottomNav />
     </>
   );
 }
