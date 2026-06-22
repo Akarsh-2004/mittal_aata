@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import type { Product } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 import { useCart } from '../context/CartContext';
 import { t, localized } from '../i18n/translations';
 import { getBrandById } from '../data/brands';
 import { ProductImage } from './ProductImage';
+import { productLinkState } from '../utils/productNav';
 
 interface ProductCardProps {
   product: Product;
@@ -14,6 +15,7 @@ interface ProductCardProps {
 export function ProductCard({ product, compact }: ProductCardProps) {
   const { language } = useLanguage();
   const { addItem } = useCart();
+  const location = useLocation();
   const brand = getBrandById(product.brand);
 
   const defaultQty = product.quantityPresets[0];
@@ -29,6 +31,7 @@ export function ProductCard({ product, compact }: ProductCardProps) {
   return (
     <Link
       to={`/product/${product.id}`}
+      state={productLinkState(location.pathname, location.hash, location.state)}
       className={`product-card ${compact ? 'product-card--compact' : ''}`}
     >
       <ProductImage

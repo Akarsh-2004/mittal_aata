@@ -13,10 +13,7 @@ import { t, localized } from '../i18n/translations';
 import { ProductCard } from '../components/ProductCard';
 import { CategoryBgLayout } from '../components/CategoryBgLayout';
 
-type CategoryPageState = {
-  fromChakki?: boolean;
-  chakkiAisle?: string;
-};
+import type { CategoryPageState } from '../utils/productNav';
 
 export function CategoryPage() {
   const { categoryId } = useParams<{ categoryId: string }>();

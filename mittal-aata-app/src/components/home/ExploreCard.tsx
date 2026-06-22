@@ -3,6 +3,7 @@ import type { Product } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { useCart } from '../../context/CartContext';
 import { localized } from '../../i18n/translations';
+import { productNavState } from '../../utils/productNav';
 import { ProductImage } from '../ProductImage';
 
 interface ExploreCardProps {
@@ -21,7 +22,7 @@ export function ExploreCard({ product }: ExploreCardProps) {
   };
 
   return (
-    <Link to={`/product/${product.id}`} className="explore-card">
+    <Link to={`/product/${product.id}`} state={productNavState('/')} className="explore-card">
       <div className="explore-card__visual">
         <ProductImage
           categoryId={product.categoryId}

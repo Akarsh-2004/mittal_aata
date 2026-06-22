@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
 import { getProductById } from '../data/products';
 import { getProductSuggestions } from '../data/suggestions';
 import { getBrandById } from '../data/brands';
@@ -12,12 +12,15 @@ import { QuantitySelector } from '../components/QuantitySelector';
 import { QuantityStepper } from '../components/QuantityStepper';
 import { ProductSuggestions } from '../components/ProductSuggestions';
 import { CategoryBgLayout } from '../components/CategoryBgLayout';
+import type { ProductNavState } from '../utils/productNav';
 
 export function ProductPage() {
   const { productId } = useParams<{ productId: string }>();
   const { language } = useLanguage();
   const { addItem } = useCart();
   const navigate = useNavigate();
+  const location = useLocation();
+  const navState = location.state as ProductNavState | null;
 
   const product = productId ? getProductById(productId) : undefined;
   const defaultPreset = product?.quantityPresets[0];
@@ -52,10 +55,13 @@ export function ProductPage() {
     product.isFreshGround ? t('freshGround', language) : null,
   ].filter(Boolean) as string[];
 
+  const backTo = navState?.backTo ?? `/category/${product.categoryId}`;
+  const backState = navState?.backState;
+
   return (
     <CategoryBgLayout categoryId={product.categoryId}>
       <div className="page product-page">
-        <Link to={`/category/${product.categoryId}`} className="back-link back-link--glass">
+        <Link to={backTo} state={backState} className="back-link back-link--glass">
           ← {t('back', language)}
         </Link>
 

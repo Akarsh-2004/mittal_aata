@@ -5,6 +5,7 @@ import { t, localized } from '../../i18n/translations';
 import { getCategoryById } from '../../data/categories';
 import { ProductImage } from '../ProductImage';
 import { IconArrowUpRight } from '../Icons';
+import { productNavState } from '../../utils/productNav';
 
 interface FeaturedSpotlightProps {
   product: Product;
@@ -15,7 +16,7 @@ export function FeaturedSpotlight({ product }: FeaturedSpotlightProps) {
   const category = getCategoryById(product.categoryId);
 
   return (
-    <Link to={`/product/${product.id}`} className="spotlight-card">
+    <Link to={`/product/${product.id}`} state={productNavState('/')} className="spotlight-card">
       <div className="spotlight-card__visual">
         <ProductImage
           categoryId={product.categoryId}
