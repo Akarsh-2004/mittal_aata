@@ -13,7 +13,7 @@ export const products: Product[] = [
   // Fresh Atta — Mittal's core
   {
     id: 'mittal-gehun-atta-5',
-    name: { en: 'Shudh Gehun Atta', hi: 'शुद्ध गेहूँ का आटा' },
+    name: { en: 'Pure Wheat Atta', hi: 'शुद्ध गेहूँ का आटा' },
     brand: 'mittal',
     categoryId: 'atta',
     price: 280,
@@ -57,7 +57,7 @@ export const products: Product[] = [
     weight: '2 kg',
     image: '/images/products/atta-bajra.jpg',
     description: {
-      en: 'Freshly ground pearl millet flour from Uttarakhand grains.',
+      en: 'Freshly ground pearl millet atta from Uttarakhand grains.',
       hi: 'उत्तराखंड के अनाज से ताज़ा पिसा बाजरा आटा।',
     },
     quantityPresets: kgPresets([1, 2, 5]),
@@ -225,7 +225,45 @@ export const products: Product[] = [
     inStock: true,
   },
 
-  // Spices
+  // Spices — chakki ground
+  {
+    id: 'mittal-chakki-haldi',
+    name: { en: 'Fresh Ground Turmeric', hi: 'ताज़ा पिसी हल्दी' },
+    brand: 'mittal',
+    categoryId: 'spices',
+    price: 45,
+    unit: 'g',
+    weight: '200 g',
+    image: '/images/products/spice-haldi.jpg',
+    description: {
+      en: 'Whole turmeric ground fresh at our chakki — vibrant and aromatic.',
+      hi: 'साबुत हल्दी हमारी चक्की में ताज़ा पिसी — चमकीली और सुगंधित।',
+    },
+    quantityPresets: gPresets([100, 200, 500]),
+    tags: ['chakki', 'spice', 'fresh'],
+    inStock: true,
+    isFreshGround: true,
+  },
+  {
+    id: 'mittal-chakki-garam',
+    name: { en: 'Fresh Ground Garam Masala', hi: 'ताज़ा पिसा गरम मसाला' },
+    brand: 'mittal',
+    categoryId: 'spices',
+    price: 55,
+    unit: 'g',
+    weight: '100 g',
+    image: '/images/products/spice-garam.jpg',
+    description: {
+      en: 'Custom garam masala blend ground to order at our chakki.',
+      hi: 'आपके अनुसार गरम मसाला मिश्रण — चक्की में ताज़ा पिसा।',
+    },
+    quantityPresets: gPresets([50, 100, 200]),
+    tags: ['chakki', 'spice', 'fresh'],
+    inStock: true,
+    isFreshGround: true,
+  },
+
+  // Spices — packaged brands
   {
     id: 'mdh-garam-masala-100',
     name: { en: 'Garam Masala', hi: 'गरम मसाला' },
@@ -240,7 +278,7 @@ export const products: Product[] = [
       hi: 'क्लासिक MDH गरम मसाला।',
     },
     quantityPresets: gPresets([50, 100, 200]),
-    tags: ['spice'],
+    tags: ['spice', 'packaged'],
     inStock: true,
   },
   {
@@ -257,7 +295,7 @@ export const products: Product[] = [
       hi: 'शुद्ध हल्दी पाउडर — चमकीला रंग।',
     },
     quantityPresets: gPresets([100, 200, 500]),
-    tags: ['spice'],
+    tags: ['spice', 'packaged'],
     inStock: true,
   },
 
@@ -280,7 +318,7 @@ export const products: Product[] = [
       { value: 5, unit: 'pack', label: { en: '5 packs', hi: '5 पैक' } },
       { value: 10, unit: 'pack', label: { en: '10 packs', hi: '10 पैक' } },
     ],
-    tags: ['snack', 'tea-time'],
+    tags: ['snack', 'tea-time', 'biscuits'],
     inStock: true,
   },
   {
@@ -301,7 +339,7 @@ export const products: Product[] = [
       { value: 3, unit: 'pack', label: { en: '3 packs', hi: '3 पैक' } },
       { value: 6, unit: 'pack', label: { en: '6 packs', hi: '6 पैक' } },
     ],
-    tags: ['snack', 'tea-time'],
+    tags: ['snack', 'tea-time', 'biscuits'],
     inStock: true,
   },
   {
@@ -321,14 +359,54 @@ export const products: Product[] = [
       { value: 1, unit: 'pack' },
       { value: 5, unit: 'pack', label: { en: '5 packs', hi: '5 पैक' } },
     ],
-    tags: ['snack'],
+    tags: ['snack', 'biscuits'],
+    inStock: true,
+  },
+  {
+    id: 'lays-classic-chips',
+    name: { en: 'Classic Salted Chips', hi: 'क्लासिक नमकीन चिप्स' },
+    brand: 'lays',
+    categoryId: 'snacks',
+    price: 20,
+    unit: 'pack',
+    weight: '52 g',
+    image: '/images/products/snack-parle.jpg',
+    description: {
+      en: 'Crispy potato chips — tea-time favourite.',
+      hi: 'कुरकुरे आलू के चिप्स — chai के साथ पसंदीदा।',
+    },
+    quantityPresets: [
+      { value: 1, unit: 'pack' },
+      { value: 3, unit: 'pack', label: { en: '3 packs', hi: '3 पैक' } },
+    ],
+    tags: ['snack', 'chips'],
+    inStock: true,
+  },
+  {
+    id: 'cadbury-dairy-milk',
+    name: { en: 'Dairy Milk Chocolate', hi: 'डेयरी मिल्क चॉकलेट' },
+    brand: 'cadbury',
+    categoryId: 'snacks',
+    price: 50,
+    unit: 'pack',
+    weight: '55 g',
+    image: '/images/products/snack-goodday.jpg',
+    description: {
+      en: 'Creamy milk chocolate bar.',
+      hi: 'मलाईदार मिल्क चॉकलेट बार।',
+    },
+    quantityPresets: [
+      { value: 1, unit: 'pack' },
+      { value: 3, unit: 'pack', label: { en: '3 bars', hi: '3 बार' } },
+    ],
+    tags: ['snack', 'chocolates'],
     inStock: true,
   },
 
   // Pahadi
   {
     id: 'mittal-mandua-1',
-    name: { en: 'Mandua (Ragi) Flour', hi: 'मंडुआ (रागी) आटा' },
+    name: { en: 'Mandua (Ragi) Atta', hi: 'मंडुआ (रागी) आटा' },
     brand: 'mittal',
     categoryId: 'pahadi',
     price: 200,
@@ -336,8 +414,8 @@ export const products: Product[] = [
     weight: '1 kg',
     image: '/images/products/pahadi-mandua.jpg',
     description: {
-      en: 'Hill-grown finger millet — ground fresh.',
-      hi: 'पहाड़ी रागी — ताज़ा पिसा।',
+      en: 'Hill-grown finger millet atta — ground fresh.',
+      hi: 'पहाड़ी रागी का आटा — ताज़ा पिसा।',
     },
     quantityPresets: kgPresets([0.5, 1, 2]),
     tags: ['pahadi', 'healthy', 'fresh'],
@@ -346,7 +424,7 @@ export const products: Product[] = [
   },
   {
     id: 'mittal-jhangora-1',
-    name: { en: 'Jhangora (Barnyard Millet)', hi: 'झंगोरा' },
+    name: { en: 'Jhangora Atta', hi: 'झंगोरे का आटा' },
     brand: 'mittal',
     categoryId: 'pahadi',
     price: 220,
@@ -354,8 +432,8 @@ export const products: Product[] = [
     weight: '1 kg',
     image: '/images/products/pahadi-jhangora.jpg',
     description: {
-      en: 'Traditional Uttarakhand millet — nutritious and light.',
-      hi: 'पारंपरिक उत्तराखंड का अनाज — पौष्टिक और हल्का।',
+      en: 'Traditional Uttarakhand barnyard millet atta — nutritious and light.',
+      hi: 'पारंपरिक उत्तराखंड का झंगोरा आटा — पौष्टिक और हल्का।',
     },
     quantityPresets: kgPresets([0.5, 1, 2]),
     tags: ['pahadi', 'healthy'],
@@ -405,6 +483,14 @@ export function getProductById(id: string): Product | undefined {
 
 export function getProductsByCategory(categoryId: string): Product[] {
   return products.filter((p) => p.categoryId === categoryId);
+}
+
+export function getGroundSpiceProducts(): Product[] {
+  return products.filter((p) => p.categoryId === 'spices' && p.isFreshGround);
+}
+
+export function getPackagedSpiceProducts(): Product[] {
+  return products.filter((p) => p.categoryId === 'spices' && !p.isFreshGround);
 }
 
 export function getProductsByBrand(brandId: string): Product[] {

@@ -11,12 +11,12 @@ export function LanguageToggle() {
       onClick={toggleLanguage}
       aria-label={t('language', language)}
     >
-      <span className={language === 'en' ? 'lang-toggle__active' : ''}>
+      <span className={`lang-toggle__option ${language === 'en' ? 'lang-toggle__active' : ''}`}>
         EN
       </span>
-      <span className="lang-toggle__divider">|</span>
-      <span className={language === 'hi' ? 'lang-toggle__active' : ''}>
-        हि
+      <span className="lang-toggle__divider" aria-hidden="true">|</span>
+      <span className={`lang-toggle__option lang-toggle__option--hi ${language === 'hi' ? 'lang-toggle__active' : ''}`}>
+        HI
       </span>
     </button>
   );

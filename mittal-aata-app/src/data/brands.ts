@@ -11,6 +11,8 @@ export const brands: Brand[] = [
   { id: 'everest', name: 'Everest' },
   { id: 'parle', name: 'Parle' },
   { id: 'britannia', name: 'Britannia' },
+  { id: 'lays', name: 'Lay\'s' },
+  { id: 'cadbury', name: 'Cadbury' },
 ];
 
 export function getBrandById(id: string): Brand | undefined {

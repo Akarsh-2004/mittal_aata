@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { useCart } from '../context/CartContext';
@@ -19,7 +20,7 @@ export function BottomNav() {
   const isActive = (to: string, exact?: boolean) =>
     exact ? location.pathname === to : location.pathname.startsWith(to);
 
-  return (
+  const nav = (
     <nav className="bottom-nav" aria-label="Mobile navigation">
       {NAV_ITEMS.map(({ to, icon: Icon, labelKey, exact }) => {
         const active = isActive(to, exact);
@@ -46,4 +47,6 @@ export function BottomNav() {
       })}
     </nav>
   );
+
+  return createPortal(nav, document.body);
 }

@@ -21,6 +21,7 @@ export function ChakkiPage() {
         </span>
         <h1 className="chakki-page__title">{t('chakkiPageTitle', language)}</h1>
         <p className="chakki-page__sub">{t('chakkiPageSub', language)}</p>
+        <p className="chakki-page__grains">{t('chakkiBringGrains', language)}</p>
         <div className="chakki-page__steps" role="list">
           {(['grind', 'pack', 'deliver'] as const).map((step) => (
             <div key={step} className="chakki-page__step" role="listitem">
@@ -50,7 +51,15 @@ export function ChakkiPage() {
                   {t(`chakkiAisle_${aisle.id}`, language)}
                 </h2>
               </div>
-              <Link to={`/category/${aisle.categoryId}`} className="chakki-page__aisle-link">
+              <Link
+                to={
+                  aisle.id === 'spices'
+                    ? `/category/spices#ground-spices`
+                    : `/category/${aisle.categoryId}`
+                }
+                state={{ fromChakki: true, chakkiAisle: aisle.id }}
+                className="chakki-page__aisle-link"
+              >
                 {t('viewAll', language)} →
               </Link>
             </div>

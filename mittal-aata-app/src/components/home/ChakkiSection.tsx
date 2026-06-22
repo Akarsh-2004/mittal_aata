@@ -20,6 +20,7 @@ export function ChakkiSection() {
             {t('chakkiSectionTitle', language)}
           </h2>
           <p className="chakki-section__sub">{t('chakkiSectionSub', language)}</p>
+          <p className="chakki-section__grains">{t('chakkiBringGrains', language)}</p>
         </div>
         <Link to="/chakki" className="chakki-section__cta">
           {t('heroExplore', language)}

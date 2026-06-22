@@ -22,7 +22,7 @@ export function getChakkiAisleProducts(aisleId: ChakkiAisleId): Product[] {
     case 'atta':
       return products.filter((p) => p.categoryId === 'atta' && p.isFreshGround);
     case 'spices':
-      return products.filter((p) => p.categoryId === 'spices');
+      return products.filter((p) => p.categoryId === 'spices' && p.isFreshGround);
     case 'millets':
       return products.filter((p) => p.categoryId === 'pahadi');
     case 'other':
